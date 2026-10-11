@@ -75,11 +75,7 @@ cd hinglish_telegram_bot
 pip install -r requirements.txt
 ```
 
-### 2. Get the ChromaDB knowledge base
-
-The `chroma_db` folder is not stored in this repository. Obtain it from the project owner and place it in the project root, so the path is `./chroma_db`. The collection name must be `company_records`.
-
-### 3. Create the `.env` file
+### 2. Create the `.env` file
 
 Create a file named `.env` in the project root:
 

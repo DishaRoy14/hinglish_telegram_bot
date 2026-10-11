@@ -4,9 +4,8 @@ import soundfile as sf
 from tts_engines import VeenaEngine
 
 
-# ============================================================
 # TEST CASES
-# ============================================================
+
 
 TEST_CASES = [
     # ---------------- HINGLISH ----------------
@@ -17,6 +16,7 @@ TEST_CASES = [
     "Abhi kitne invoices overdue hain?",
     "Saare overdue invoices ki total due amount kitni hai?",
     "Apex Tech Solutions ka koi pending invoice hai kya?",
+    
 
     # ---------------- HINDI ----------------
 
@@ -29,9 +29,7 @@ TEST_CASES = [
 ]
 
 
-# ============================================================
-# OUTPUT DIRECTORY
-# ============================================================
+
 
 BASE_DIR = Path(__file__).resolve().parent
 
@@ -39,19 +37,13 @@ OUTPUT_DIR = BASE_DIR / "test_cases"
 OUTPUT_DIR.mkdir(exist_ok=True)
 
 
-# ============================================================
-# INITIALIZE VEENA
-# ============================================================
-
 print("Loading Veena...")
 engine = VeenaEngine()
 
 print(f"\nGenerating {len(TEST_CASES)} test cases...\n")
 
 
-# ============================================================
-# GENERATE AUDIO
-# ============================================================
+
 
 for i, sentence in enumerate(TEST_CASES, start=1):
 
@@ -62,10 +54,10 @@ for i, sentence in enumerate(TEST_CASES, start=1):
     output_path = OUTPUT_DIR / f"test_{i:02d}.wav"
 
     try:
-        # Veena returns numpy.ndarray
+        
         audio = engine.synthesize(sentence)
 
-        # Convert numpy array -> WAV
+        
         sf.write(
             str(output_path),
             audio,
@@ -81,3 +73,12 @@ for i, sentence in enumerate(TEST_CASES, start=1):
 print("\n" + "=" * 70)
 print("All test cases generated.")
 print(f"Output folder: {OUTPUT_DIR}")
+
+
+
+"""additional test cases:
+Rahul Sharma kis department mein kaam karta hai?
+Rahul किस department में काम करता है?
+Rahul का role क्या है?
+Rahul कौन है?
+"""

@@ -33,7 +33,7 @@ async def reset(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
 async def reply_with_result(update: Update, client: httpx.AsyncClient, result: dict):
-    # 0:text reply, 1:voice reply
+    
     if random.randint(0, 1) == 0:
         await update.message.reply_text(result["reply_text"])
         return

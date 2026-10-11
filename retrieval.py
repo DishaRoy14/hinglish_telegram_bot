@@ -39,7 +39,7 @@ def get_by_id(item_id: str):
 def find_employee(query: str):
     query_lower = query.lower()
 
-    # 1. Try exact full-name matching first
+    
     for metadata in ALL_METADATA:
         if metadata.get("entity_type") != "employee":
             continue
@@ -47,12 +47,12 @@ def find_employee(query: str):
         name = metadata.get("name", "").strip()
 
         if name and name.lower() in query_lower:
-            emp_id = metadata.get("emp_id")
+            emp_id = metadata.get("emp_id")+
 
             if emp_id:
                 return get_by_id(emp_id)
 
-    # 2. Try first-name matching
+   
     for metadata in ALL_METADATA:
         if metadata.get("entity_type") != "employee":
             continue
